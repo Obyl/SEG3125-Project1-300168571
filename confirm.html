@@ -13,7 +13,7 @@
         <link href="style.css"
               rel="stylesheet">
             
-        <title>OPL - Home</title>
+        <title>OPL - Book</title>
     </head>
     <body style="background-color: #EEEEEE;">
         <!-- Banner -->
@@ -51,37 +51,34 @@
             </div>
         </div>
 
-        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-    
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/carosel1.png" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/carosel2.png" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/carosel3.png" class="d-block w-100">
-                </div>
-            </div>
-    
-            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
-        </div>
+        <h2 class="text-center" style="margin-top: 10px">Booking Confirmed</h2>
 
-        <div style="margin-left: auto; margin-right: auto; text-align: center; margin-top: 30px; font-size: large;">
-            <a href="services.html" class="banner-button">Explore Services</a>
-            <a href="contact.html" class="banner-button">Contact Us</a>
-        </div>
+        <p id="line1" style="margin-left: 20px;"></p>
+        <p id="line2"style="margin-left: 20px;"></p>
+        <p style="margin-left: 20px;">If you become unable to attend the consultation, please contact us as soon as possible to cancel or reschedule.</p>
+        <p style="margin-left: 20px;">Thank you!</p>
+
+        <a href="index.html" class="banner-button" style="margin-left: 20px;">Back to Home</button>
+
+        <script>
+            function getData() {
+                const params = new URLSearchParams(window.location.search);
+                return {
+                    mode: params.get("mode"),
+                    employee: params.get("employee"),
+                    service: params.get("service-type"),
+                    time: params.get("time"),
+                    date: params.get("date")
+                }
+            }
+
+            const data = getData();
+
+            document.getElementById("line1").textContent = `You have booked an ${data.mode} appointment with ${data.employee} regarding ${data.service}, at ${data.time} on ${data.date}.`;
+
+            const confirmNumber = Math.floor(Math.random() * 999999);
+            document.getElementById("line2").textContent = `Your confirmation number is ${confirmNumber}.`;
+        </script>
 
         <!-- Bootstrap JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
